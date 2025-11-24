@@ -31,7 +31,7 @@ form {
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, #4caf50, #81c784);
+  background: linear-gradient(90deg, #ff3333, #ff6666);
   z-index: 1;
 }
 
@@ -72,7 +72,7 @@ form {
   top: -10px;
   left: 15px;
   font-size: 60px;
-  color: rgba(76, 175, 80, 0.15);
+  color: rgba(255, 51, 51, 0.15);
   font-family: 'Georgia', serif;
   line-height: 1;
   z-index: 0;
@@ -103,7 +103,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #4caf50, #81c784);
+  background: linear-gradient(135deg, #ff3333, #ff6666);
   flex-shrink: 0;
   position: relative;
   z-index: 2;
@@ -116,7 +116,7 @@ form {
 
 .user-full-name {
   font-weight: 700;
-  color: #4caf50;
+  color: #ff3333;
   margin: 0;
   font-size: 16px;
 }
