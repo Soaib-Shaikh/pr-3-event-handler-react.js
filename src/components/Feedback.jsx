@@ -74,7 +74,7 @@ const Feedback = () => {
 
                     {
                         user.map((val, index) => {
-                            const { username, email, message, rating, id } = val;
+                            const { username, email, message, rating} = val;
                             return (
                                 <div className="feedback-card" key={index}>
                                     <div className="card-header-section">
