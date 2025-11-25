@@ -31,13 +31,7 @@ const Feedback = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setUser([...user, formData]);
-        setFormData({
-            username: "",
-            email: "",
-            subject: "",
-            message: "",
-            rating: 0
-        });
+        setFormData({});
 
     }
 
@@ -51,18 +45,18 @@ const Feedback = () => {
                             <h2 className='text-center'>Feedback Form</h2>
                             <div className="mb-3">
                                 <label htmlFor="username" className="form-label">Username:</label>
-                                <input type="text" name='username' value={formData.username || ''} onChange={handleChange} className="form-control" id="username" aria-describedby="emailHelp" />
+                                <input type="text" name='username' value={formData.username || ''} onChange={handleChange} placeholder='Enter Username' className="form-control" id="username" aria-describedby="emailHelp" />
 
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label">Email: </label>
-                                <input type="email" name='email' value={formData.email || ''} onChange={handleChange} className="form-control" id="email" aria-describedby="emailHelp" />
+                                <input type="email" name='email' value={formData.email || ''} onChange={handleChange} placeholder='Enter Email' className="form-control" id="email" aria-describedby="emailHelp" />
 
                             </div>
                             
                             <div className="mb-3">
                                 <label htmlFor="message" className="form-label">Feedback:</label>
-                                <textarea name='message' value={formData.message || ''} onChange={handleChange} className="form-control" id="message" rows="4"></textarea>
+                                <textarea name='message' value={formData.message || ''} onChange={handleChange} placeholder='Write Your Feedback' className="form-control" id="message" rows="4"></textarea>
                             </div>
 
                             <div className="mb-3">
