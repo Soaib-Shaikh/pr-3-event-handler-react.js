@@ -7,16 +7,18 @@ const Feedback = () => {
 
     const [user, setUser] = useState([])
     const [formData, setFormData] = useState({});
+    const [mount, setMount] = useState(false)
 
     useEffect(() => {
         const saveData = JSON.parse(localStorage.getItem("feedbacks"));
-        if (saveData) {
-            setUser(saveData);
-        }
+        setUser(saveData);
+        setMount(true);
     },[])
 
     useEffect(() => {
-        localStorage.setItem("feedbacks", JSON.stringify(user));
+        if(mount){
+            localStorage.setItem("feedbacks", JSON.stringify(user));
+        }
     },[user])
 
     const handleChange = (e) => {
@@ -30,9 +32,14 @@ const Feedback = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setUser([...user, formData]);
+        setUser([...user, {...formData, id: Date.now()}]);
         setFormData({});
 
+    }
+
+    const handleDelete = (id) => {
+        let data = user.filter(val => val.id != id);
+        setUser(data);
     }
 
     console.log(user);
@@ -74,7 +81,7 @@ const Feedback = () => {
 
                     {
                         user.map((val, index) => {
-                            const { username, email, message, rating} = val;
+                            const { username, email, message, rating, id} = val;
                             return (
                                 <div className="feedback-card" key={index}>
                                     <div className="card-header-section">
@@ -100,6 +107,7 @@ const Feedback = () => {
                                             <h6 className="user-full-name">{username}</h6>
                                             <p className="user-email">{email}</p>
                                         </div>
+                                        <button className='dlt-btn' onClick={()=> handleDelete(id)}>Delete</button>
                                     </div>
                                 </div>
                             )
